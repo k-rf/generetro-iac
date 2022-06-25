@@ -1,0 +1,38 @@
+{
+  "name": "generetro-iac",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "up:pipeline": "pulumi up -s pipeline -C src/pipeline",
+    "up:prd": "pulumi up -s production -C src/deployment",
+    "lint": "eslint --fix --cache --ext .ts,.js ./src",
+    "fmt": "prettier . --write",
+    "type": "tsc --project tsconfig.json --pretty --noEmit",
+    "check:all": ""
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "bash -c 'yarn check:type'",
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "eslint": "^8.18.0",
+    "eslint-import-resolver-typescript": "^3.1.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1"
+  },
+  "dependencies": {
+    "@pulumi/gcp": "^6.0.0",
+    "@pulumi/pulumi": "^3.0.0"
+  }
+}
