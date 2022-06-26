@@ -1,5 +1,5 @@
 {
   "version": "0.2",
   "ignorePaths": ["devcontainer.json"],
-  "words": ["generetro", "pulumi"]
+  "words": ["artifactregistry", "cloudbuild", "generetro", "linebreak", "Parens", "pulumi"]
 }

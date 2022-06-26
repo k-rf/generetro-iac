@@ -20,7 +20,7 @@
   ],
   "settings": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSaveMode": "modifications",
+    "editor.formatOnSaveMode": "file",
     "editor.codeActionsOnSave": {
       "source.fixAll": true
     }

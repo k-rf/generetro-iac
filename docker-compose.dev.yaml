@@ -30,7 +30,10 @@ services:
         target: ${IAC_REMOTE_WORKSPACES}/node_modules
       - type: volume
         source: iac_gcloud
-        target: ${IAC_REMOTE_HOME}/.config/gloud
+        target: ${IAC_REMOTE_HOME}/.config/gcloud
+      - type: volume
+        source: iac_pulumi
+        target: ${IAC_REMOTE_HOME}/.pulumi
 
 networks:
   default:
@@ -46,3 +49,5 @@ volumes:
     name: ${IAC_NODE_MODULES_VOLUME_NAME}
   iac_gcloud:
     name: ${IAC_GCLOUD_VOLUME_NAME}
+  iac_pulumi:
+    name: ${IAC_PULUMI_VOLUME_NAME}

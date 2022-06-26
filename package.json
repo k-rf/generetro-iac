@@ -4,16 +4,18 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "up:pipeline": "pulumi up -s pipeline -C src/pipeline",
-    "up:prd": "pulumi up -s production -C src/deployment",
+    "pulumi:up:pipeline": "pulumi up -C src/pipeline -s pipeline",
+    "pulumi:up:prd": "pulumi up -C src/deployment -s production",
+    "pulumi:config:pipeline": "pulumi config -C src/pipeline",
+    "pulumi:config:prd": "pulumi config -C src/deployment",
     "lint": "eslint --fix --cache --ext .ts,.js ./src",
     "fmt": "prettier . --write",
     "type": "tsc --project tsconfig.json --pretty --noEmit",
-    "check:all": ""
+    "check:all": "npm-run-all -s fmt type lint"
   },
   "lint-staged": {
     "*.{ts,js}": [
-      "bash -c 'yarn check:type'",
+      "bash -c 'yarn type'",
       "prettier --write",
       "eslint --cache --fix"
     ],
@@ -23,12 +25,16 @@
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.29.0",
+    "@typescript-eslint/parser": "^5.29.0",
     "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-typescript": "^3.1.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.7.1"
   },
   "dependencies": {

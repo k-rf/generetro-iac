@@ -14,9 +14,19 @@ RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.c
   && apt-get install google-cloud-sdk -y
 
 RUN SNIPPET="export PROMPT_COMMAND='history -a' && export HISTFILE=/commandhistory/.bash_history" \
-  && mkdir -p /commandhistory ${REMOTE_HOME}/.vscode-server/extensions ${REMOTE_HOME}/.config/gcloud ${REMOTE_WORKSPACES}/node_modules \
+  && mkdir -p \
+    /commandhistory \
+    ${REMOTE_HOME}/.vscode-server/extensions \
+    ${REMOTE_HOME}/.config/gcloud \
+    ${REMOTE_HOME}/.pulumi \
+    ${REMOTE_WORKSPACES}/node_modules \
   && touch /commandhistory/.bash_history \
-  && chown -R ${REMOTE_USER}:${REMOTE_USER} /commandhistory ${REMOTE_HOME}/.vscode-server ${REMOTE_HOME}/.config ${REMOTE_WORKSPACES}/node_modules \
+  && chown -R ${REMOTE_USER}:${REMOTE_USER} \
+    /commandhistory \
+    ${REMOTE_HOME}/.vscode-server \
+    ${REMOTE_HOME}/.config \
+    ${REMOTE_HOME}/.pulumi \
+    ${REMOTE_WORKSPACES}/node_modules \
   && echo ${SNIPPET} >> ${REMOTE_HOME}/.bashrc
 
 RUN sh -c "$(curl -fsSL https://starship.rs/install.sh)" -- --yes \
