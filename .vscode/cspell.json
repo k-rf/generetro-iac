@@ -1,5 +1,17 @@
 {
   "version": "0.2",
   "ignorePaths": ["devcontainer.json"],
-  "words": ["artifactregistry", "cloudbuild", "generetro", "linebreak", "Parens", "pulumi"]
+  "words": [
+    "artifactregistry",
+    "cloudbuild",
+    "cloudsdktool",
+    "Commandline",
+    "generetro",
+    "linebreak",
+    "magit",
+    "Parens",
+    "pulumi",
+    "vspacecode",
+    "whichkey"
+  ]
 }

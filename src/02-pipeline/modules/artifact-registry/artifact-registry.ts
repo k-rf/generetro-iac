@@ -1,6 +1,7 @@
 import { Repository, RepositoryArgs } from "@pulumi/gcp/artifactregistry";
 
-import { CONFIG, Properties, Resource } from "../../../shared";
+import { Properties, Resource } from "../../../shared";
+import { CONFIG } from "../../../variables";
 
 type Props = Properties & Pick<RepositoryArgs, "description" | "labels">;
 
