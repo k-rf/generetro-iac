@@ -1,0 +1,21 @@
+config:
+  app:name: generetro
+  env:notion-database-id:
+    secure: AAABANcdTM/fPeqYYhodZtc8CmdbSemmsx+0iT6S1ZinS3WL2BLqtWCLShxGrJ3AOQCYJqNvEbMtmuQds3qlA1WZP6U=
+  env:notion-element-column: 構成要素
+  env:notion-key:
+    secure: AAABAIQf4yiYo0CaYdFJk8zp+TKcSw+mIKliC0yuT5IAIkmVCquuIsHPlbe04fcLUHxTCcGU8Rxf1lLlm79xAveCB2khPRKOfidLXkIrU48auQ==
+  env:notion-remind-column: リマインド
+  env:notion-tag-column: タグ
+  env:notion-tag-daily: 日次
+  env:notion-tag-weekly: 週次
+  env:notion-template-daily-id:
+    secure: AAABAHqvZF2WN3+7nWY9XdC2SAESH9N9rGKMjxpXiDrS91twqv0jpnKMoTgiI6icCEympwi6COllDBUdmcI/4lWJOuw=
+  env:notion-template-weekly-id:
+    secure: AAABAC+t51Bo54dNCBrnJs2w/iuIrz+KptCf4V/biQ7sd0ikoUHW7pIER5JlBICrdZRd6iOuoMd1xSqmb8sQie+FMCc=
+  gcp:project: generetro
+  gcp:region: asia-northeast1
+  github:owner:
+    secure: AAABAFuso3ZjICgrVMyqWs73NLDGTDFEtAMxsB0veiWLxwgY
+  github:repository:
+    secure: AAABANi/qeucVZOT4S0O50n9kpHWlvWiecYowkgEYL1QgdzwvvguByQ=

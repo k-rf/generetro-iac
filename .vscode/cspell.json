@@ -4,6 +4,7 @@
   "words": [
     "artifactregistry",
     "cloudbuild",
+    "cloudrun",
     "cloudsdktool",
     "Commandline",
     "generetro",
@@ -11,6 +12,10 @@
     "magit",
     "Parens",
     "pulumi",
+    "secretmanager",
+    "serviceaccount",
+    "serviceaccounts",
+    "serviceusage",
     "vspacecode",
     "whichkey"
   ]

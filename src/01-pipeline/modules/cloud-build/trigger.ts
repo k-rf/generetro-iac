@@ -3,7 +3,7 @@ import { Trigger, TriggerArgs } from "@pulumi/gcp/cloudbuild";
 import { Properties, Resource } from "../../../shared";
 import { CONFIG } from "../../../variables";
 
-type Props = Properties & Pick<TriggerArgs, "description" | "tags" | "build">;
+type Props = Properties & Pick<TriggerArgs, "description" | "tags" | "build" | "serviceAccount">;
 
 export class CloudBuildTrigger extends Resource<Trigger, Props> {
   protected resource: Trigger;
@@ -14,6 +14,7 @@ export class CloudBuildTrigger extends Resource<Trigger, Props> {
     this.resource = new Trigger(props.resourceName, {
       ...props,
       name: props.resourceName,
+      project: CONFIG.GCP.PROJECT,
       github: {
         name: CONFIG.GITHUB.REPOSITORY,
         owner: CONFIG.GITHUB.OWNER,
@@ -21,6 +22,7 @@ export class CloudBuildTrigger extends Resource<Trigger, Props> {
           branch: "^main$",
         },
       },
+      serviceAccount: props.serviceAccount,
       build: props.build,
     });
   }

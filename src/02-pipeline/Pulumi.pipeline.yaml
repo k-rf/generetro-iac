@@ -1,8 +1,0 @@
-config:
-  app:name: generetro
-  gcp:project: generetro
-  gcp:region: asia-northeast1
-  github:owner:
-    secure: AAABAFuso3ZjICgrVMyqWs73NLDGTDFEtAMxsB0veiWLxwgY
-  github:repository:
-    secure: AAABANi/qeucVZOT4S0O50n9kpHWlvWiecYowkgEYL1QgdzwvvguByQ=

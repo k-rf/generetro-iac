@@ -1,8 +1,4 @@
-type Primitive = number | string | boolean | Date | undefined | null;
-type Arr = Array<Primitive>;
-type Obj = Record<string, Primitive | Arr | unknown>;
-
-export type Properties = Obj & {
+export type Properties = {
   resourceName: string;
 };
 
