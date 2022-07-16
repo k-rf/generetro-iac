@@ -1,7 +1,10 @@
 import { IAMBinding } from "@pulumi/gcp/projects";
 
 import { lowerHyphen } from "../utils/lower-hyphen";
-import { CONFIG, RESOURCES } from "../variables";
+import { RESOURCES } from "../variables";
+import { APP_CONFIG } from "../variables/config/app";
+import { ENV_CONFIG } from "../variables/config/env";
+import { GCP_CONFIG } from "../variables/config/gcp";
 
 import { ServiceAccount } from "./modules/account";
 import { ArtifactRegistry } from "./modules/artifact-registry";
@@ -30,14 +33,14 @@ cloudBuildServiceAccount.created.email.apply((email) => {
       new IAMBinding(`binding-${role.name}`, {
         role: role.role,
         members: [`serviceAccount:${email}`],
-        project: CONFIG.GCP.PROJECT,
+        project: GCP_CONFIG.PROJECT,
       })
   );
 });
 
 // ============================================================================
 const secretManager = new SecretManager({
-  keyValues: Object.entries(CONFIG.ENV).map(([key, value]) => ({
+  keyValues: Object.entries(ENV_CONFIG).map(([key, value]) => ({
     key: { resourceName: `${lowerHyphen(key)}-key`, secretId: key },
     value: { resourceName: `${lowerHyphen(key)}-value`, secretData: value },
   })),
@@ -64,7 +67,7 @@ const cloudBuildTrigger = new CloudBuildTrigger({
     cloudRunName: RESOURCES.CLOUD_RUN.NAME,
     secretManager,
   }),
-  tags: [CONFIG.APP.NAME],
+  tags: [APP_CONFIG.NAME],
 });
 
 export const triggerName = cloudBuildTrigger.created.name;

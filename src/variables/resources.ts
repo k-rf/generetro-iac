@@ -1,4 +1,4 @@
-import { CONFIG } from "./config";
+import { APP_CONFIG } from "./config/app";
 
 const RESOURCE_KEYS = {
   ARTIFACT_REGISTRY: "ARTIFACT_REGISTRY",
@@ -12,25 +12,25 @@ const RESOURCE_KEYS = {
 export const RESOURCES: Record<keyof typeof RESOURCE_KEYS, { NAME: string; DESCRIPTION?: string }> =
   {
     ARTIFACT_REGISTRY: {
-      NAME: `${CONFIG.APP.NAME}-artifact-registry`,
+      NAME: `${APP_CONFIG.NAME}-artifact-registry`,
       DESCRIPTION: "The artifact registry for generetro",
     },
     CLOUD_BUILD_TRIGGER: {
-      NAME: `${CONFIG.APP.NAME}-cloud-build-trigger`,
+      NAME: `${APP_CONFIG.NAME}-cloud-build-trigger`,
       DESCRIPTION: "The pipeline for generetro",
     },
     CLOUD_BUILD_SERVICE_ACCOUNT: {
-      NAME: `${CONFIG.APP.NAME}-cloud-build-service-account`,
+      NAME: `${APP_CONFIG.NAME}-cloud-build-service-account`,
       DESCRIPTION: "The service account for generetro cloud build",
     },
     CLOUD_RUN: {
-      NAME: `${CONFIG.APP.NAME}-cloud-run`,
+      NAME: `${APP_CONFIG.NAME}-cloud-run`,
       DESCRIPTION: "The execution environment for generetro",
     },
     SECRET_BINDING: {
-      NAME: `${CONFIG.APP.NAME}-secret-binding`,
+      NAME: `${APP_CONFIG.NAME}-secret-binding`,
     },
     SECRET_POLICY: {
-      NAME: `${CONFIG.APP.NAME}-secret-policy`,
+      NAME: `${APP_CONFIG.NAME}-secret-policy`,
     },
   };

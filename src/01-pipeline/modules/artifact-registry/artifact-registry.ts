@@ -1,7 +1,7 @@
 import { Repository, RepositoryArgs } from "@pulumi/gcp/artifactregistry";
 
 import { Properties, Resource } from "../../../shared";
-import { CONFIG } from "../../../variables";
+import { GCP_CONFIG } from "../../../variables/config/gcp";
 
 type Props = Properties & Pick<RepositoryArgs, "description" | "labels">;
 
@@ -13,8 +13,8 @@ export class ArtifactRegistry extends Resource<Repository, Props> {
 
     this.resource = new Repository(props.resourceName, {
       ...props,
-      location: CONFIG.GCP.REGION,
-      project: CONFIG.GCP.PROJECT,
+      location: GCP_CONFIG.REGION,
+      project: GCP_CONFIG.PROJECT,
       format: "Docker",
       repositoryId: props.resourceName,
     });

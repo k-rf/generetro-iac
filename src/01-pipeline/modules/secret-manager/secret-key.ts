@@ -1,7 +1,7 @@
 import { Secret, SecretArgs } from "@pulumi/gcp/secretmanager";
 
 import { Properties, Resource } from "../../../shared";
-import { CONFIG } from "../../../variables";
+import { GCP_CONFIG } from "../../../variables/config/gcp";
 
 type Props = Properties & Pick<SecretArgs, "secretId">;
 
@@ -14,7 +14,7 @@ export class SecretKey extends Resource<Secret, Props> {
     this.resource = new Secret(props.resourceName, {
       replication: {
         userManaged: {
-          replicas: [{ location: CONFIG.GCP.REGION }],
+          replicas: [{ location: GCP_CONFIG.REGION }],
         },
       },
       secretId: props.secretId,
