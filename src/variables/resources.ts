@@ -4,9 +4,12 @@ const RESOURCE_KEYS = {
   ARTIFACT_REGISTRY: "ARTIFACT_REGISTRY",
   CLOUD_BUILD_TRIGGER: "CLOUD_BUILD_TRIGGER",
   CLOUD_BUILD_SERVICE_ACCOUNT: "CLOUD_BUILD_SERVICE_ACCOUNT",
+  CLOUD_BUILD_ROLE: "SECRET_BINDING",
   CLOUD_RUN: "CLOUD_RUN",
-  SECRET_BINDING: "SECRET_BINDING",
-  SECRET_POLICY: "SECRET_POLICY",
+  CLOUD_RUN_ROLE: "CLOUD_RUN_ROLE",
+  CLOUD_SCHEDULER: "CLOUD_SCHEDULER",
+  CLOUD_SCHEDULER_SERVICE_ACCOUNT: "CLOUD_SCHEDULER_SERVICE_ACCOUNT",
+  CLOUD_SCHEDULER_ROLE: "CLOUD_SCHEDULER_ROLE",
 } as const;
 
 export const RESOURCES: Record<keyof typeof RESOURCE_KEYS, { NAME: string; DESCRIPTION?: string }> =
@@ -23,14 +26,25 @@ export const RESOURCES: Record<keyof typeof RESOURCE_KEYS, { NAME: string; DESCR
       NAME: `${APP_CONFIG.NAME}-cloud-build-service-account`,
       DESCRIPTION: "The service account for generetro cloud build",
     },
+    CLOUD_BUILD_ROLE: {
+      NAME: `${APP_CONFIG.NAME}-cloud-build-role`,
+    },
     CLOUD_RUN: {
       NAME: `${APP_CONFIG.NAME}-cloud-run`,
       DESCRIPTION: "The execution environment for generetro",
     },
-    SECRET_BINDING: {
-      NAME: `${APP_CONFIG.NAME}-secret-binding`,
+    CLOUD_RUN_ROLE: {
+      NAME: `${APP_CONFIG.NAME}-cloud-run-role`,
     },
-    SECRET_POLICY: {
-      NAME: `${APP_CONFIG.NAME}-secret-policy`,
+    CLOUD_SCHEDULER: {
+      NAME: `${APP_CONFIG.NAME}-cloud-scheduler`,
+      DESCRIPTION: "The scheduler for generetro",
+    },
+    CLOUD_SCHEDULER_SERVICE_ACCOUNT: {
+      NAME: `${APP_CONFIG.NAME}-cloud-scheduler-service-account`,
+      DESCRIPTION: "The service account for generetro cloud scheduler",
+    },
+    CLOUD_SCHEDULER_ROLE: {
+      NAME: `${APP_CONFIG.NAME}-cloud-scheduler-role`,
     },
   };
