@@ -1,0 +1,4 @@
+config:
+  app:name: generetro
+  gcp:project: generetro
+  gcp:region: asia-northeast1
