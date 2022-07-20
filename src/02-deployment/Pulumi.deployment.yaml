@@ -1,0 +1,6 @@
+config:
+  app:name: generetro
+  gcp:project: generetro
+  gcp:region: asia-northeast1
+  generetro:org:
+    secure: AAABAH2KBZ6Em7eytcMYLxzsqeG673s6r+Xio4JJBfmLdKhu
