@@ -15,6 +15,8 @@ config:
     secure: AAABAC+t51Bo54dNCBrnJs2w/iuIrz+KptCf4V/biQ7sd0ikoUHW7pIER5JlBICrdZRd6iOuoMd1xSqmb8sQie+FMCc=
   gcp:project: generetro
   gcp:region: asia-northeast1
+  generetro:org:
+    secure: AAABANBRuBfPq/XXLrk3Z4QJjF0La9OPuwBzrG7kgvPSkU4Y
   github:owner:
     secure: AAABAFuso3ZjICgrVMyqWs73NLDGTDFEtAMxsB0veiWLxwgY
   github:repository:

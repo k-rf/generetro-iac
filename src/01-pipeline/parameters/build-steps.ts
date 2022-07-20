@@ -21,7 +21,7 @@ export const buildSteps: BuildSteps = (props) => {
 
   return {
     timeout: "7200s",
-    images: [`${prodImage}:$COMMIT_SHA`],
+    images: [`${prodImage}:latest`, `${prodImage}:$COMMIT_SHA`],
     availableSecrets: {
       secretManagers: props.secretManager.created.map((secret) => ({
         env: secret.key.created.secretId,
@@ -41,13 +41,16 @@ export const buildSteps: BuildSteps = (props) => {
         id: "Build",
         name: imagesOnCloudBuild.docker,
         entrypoint: `bash`,
-        args: [`-c`, `docker build -t ${prodImage}:$COMMIT_SHA ${dockerEnv} .`],
+        args: [
+          `-c`,
+          `docker build -t ${prodImage}:$COMMIT_SHA -t ${prodImage}:latest ${dockerEnv} .`,
+        ],
         secretEnvs: Object.keys(ENV_CONFIG),
       },
       {
         id: "Push",
         name: imagesOnCloudBuild.docker,
-        args: [`push`, `${prodImage}:$COMMIT_SHA`],
+        args: [`push`, `--all-tags`, `${prodImage}`],
       },
       {
         id: "Deploy",

@@ -1,5 +1,3 @@
-import { ServiceAccount } from "../account";
-
 import { SecretKey, SecretKeyProps } from "./secret-key";
 import { SecretValue, SecretValueProps } from "./secret-value";
 
@@ -8,7 +6,6 @@ type Props = {
     key: SecretKeyProps;
     value: Omit<SecretValueProps, "secret">;
   }[];
-  serviceAccount: ServiceAccount;
 };
 
 type Output = {
