@@ -18,3 +18,39 @@ WARNING: The login flow that you are using with the --no-launch-browser flag wil
 ```bash
 gcloud auth login --no-launch-browser
 ```
+
+## ディレクトリ構成案
+
+```
+src
+|-- modules
+|   |-- cloud-run
+|   |-- cloud-build
+|   |-- cloud-scheduler
+|   `-- etc...
+`-- environments
+    |-- dev
+    |   |-- index.ts
+    |   |-- Pulumi.dev.yaml
+    |   `-- Pulumi.yaml
+    |-- stg
+    `-- prd
+```
+
+```
+src
+|-- lifecycle-1
+|   |-- modules
+|   |   `-- iam
+|   |-- index.ts
+|   |-- Pulumi.lifecycle-1.yaml
+|   |-- Pulumi.yaml
+|-- lifecycle-2
+|   |-- modules
+|   |   |-- cloud-build
+|   |   `-- secret-manager
+|   |-- index.ts
+|   |-- Pulumi.lifecycle-2.yaml
+|   |-- Pulumi.yaml
+`-- ...
+```
