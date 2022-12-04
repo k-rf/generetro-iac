@@ -8,6 +8,7 @@
     "cloudscheduler",
     "cloudsdktool",
     "Commandline",
+    "gcloud",
     "generetro",
     "linebreak",
     "magit",
